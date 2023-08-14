@@ -2,9 +2,9 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Productive IT Tools"
-#define MyAppVersion "Productive IT Tools 1.0"
+#define MyAppVersion "Productive IT Tools 1.1"
 #define MyAppPublisher "ActivityWatch Contributors"
-#define MyAppURL "https://activitywatch.net/"
+#define MyAppURL ""
 #define MyAppExeName "aw-qt.exe"
 #define RootDir "..\.."
 #define DistDir "..\..\dist"
@@ -21,8 +21,8 @@ AppVersion={#MyAppVersion}
 ;AppVerName={#MyAppName} {#MyAppVersion}
 AppPublisher={#MyAppPublisher}
 AppPublisherURL={#MyAppURL}
-AppSupportURL="https://github.com/ActivityWatch/activitywatch/issues"
-AppUpdatesURL="https://github.com/ActivityWatch/activitywatch/releases"
+AppSupportURL=""
+AppUpdatesURL=""
 DefaultDirName={autopf}\{#MyAppName}
 DisableProgramGroupPage=yes
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
