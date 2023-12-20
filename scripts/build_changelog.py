@@ -26,6 +26,7 @@ from typing import (
 )
 
 import requests
+from security import safe_requests
 
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
@@ -358,8 +359,7 @@ def _resolve_email(email: str) -> Optional[str]:
                 break
             try:
                 logger.info(f"Sending request for {email}")
-                _resp = requests.get(
-                    f"https://api.github.com/search/users?q={email}+in%3Aemail"
+                _resp = safe_requests.get(f"https://api.github.com/search/users?q={email}+in%3Aemail"
                 )
                 _resp.raise_for_status()
                 resp = _resp
@@ -453,7 +453,7 @@ def get_twitter_of_ghusers(ghusers: Collection[str]):
     twitter = {}
     for username in ghusers:
         try:
-            resp = requests.get(f"https://api.github.com/users/{username}")
+            resp = safe_requests.get(f"https://api.github.com/users/{username}")
             resp.raise_for_status()
             data = resp.json()
         except Exception as e:
