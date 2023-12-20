@@ -26,6 +26,7 @@ from typing import (
 )
 
 import requests
+from security import safe_command
 
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
@@ -109,7 +110,7 @@ class Commit:
 
 def run(cmd, cwd=".") -> str:
     logger.debug(f"Running in {cwd}: {cmd}")
-    p = _run(shlex.split(cmd), stdout=PIPE, stderr=STDOUT, encoding="utf8", cwd=cwd)
+    p = safe_command.run(_run, shlex.split(cmd), stdout=PIPE, stderr=STDOUT, encoding="utf8", cwd=cwd)
     if p.returncode != 0:
         print(p.stdout)
         print(p.stderr)
